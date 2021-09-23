@@ -126,10 +126,10 @@ ifneq ($(LIBC),musl)
     endif
 endif
 
-ifeq ($(ARCH), ppc64le)
-    override ARCH = powerpc64le
+ifneq (,$(findstring ppc64,$(ARCH)))
+    override ARCH = $(subst ppc64,powerpc64,$(shell uname -m))
     override LIBC = gnu
-    $(warning "WARNING: powerpc64le-unknown-linux-musl target is unavailable")
+    $(warning "WARNING: $(ARCH)-unknown-linux-musl target is unavailable")
 endif
 
 ifeq ($(ARCH), s390x)

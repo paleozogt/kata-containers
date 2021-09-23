@@ -43,8 +43,8 @@ function install_yq() {
 	"aarch64")
 		goarch=arm64
 		;;
-	"ppc64le")
-		goarch=ppc64le
+	"ppc64*")
+		goarch="${sysInfo[1]}"
 		;;
 	"x86_64")
 		goarch=amd64

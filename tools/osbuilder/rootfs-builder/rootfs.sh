@@ -538,7 +538,7 @@ EOT
 	AGENT_DEST="${AGENT_DIR}/${AGENT_BIN}"
 
 	if [ -z "${AGENT_SOURCE_BIN}" ] ; then
-		if [ "$ARCH" == "ppc64le" ] || [ "$ARCH" == "s390x" ]; then
+		if [[ "$ARCH" == ppc64* ]] || [[ "$ARCH" == "s390x" ]]; then
 			LIBC=gnu
 			echo "WARNING: Forcing LIBC=gnu because $ARCH has no musl Rust target"
 		fi

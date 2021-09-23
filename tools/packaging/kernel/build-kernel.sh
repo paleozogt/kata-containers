@@ -104,7 +104,7 @@ arch_to_kernel() {
 
 	case "$arch" in
 		aarch64) echo "arm64" ;;
-		ppc64le) echo "powerpc" ;;
+		ppc64*) echo "powerpc" ;;
 		s390x) echo "s390" ;;
 		x86_64) echo "$arch" ;;
 		*) die "unsupported architecture: $arch" ;;

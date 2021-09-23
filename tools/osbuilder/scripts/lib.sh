@@ -236,8 +236,8 @@ generate_dockerfile()
 	local muslarch=${architecture}
 	local libc=musl
 	case "$(uname -m)" in
-		"ppc64le")
-			rustarch=powerpc64le
+		ppc64*)
+			rustarch=${architecture/ppc/powerpc}
 			muslarch=powerpc64
 			libc=gnu
 			;;
